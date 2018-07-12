@@ -2,13 +2,15 @@
   <div class="flex-grid">
     <div class="col-3 push-top">
 
-      <!--<UserProfileCard-->
-        <!--:user="user"-->
-        <!--:userPostsCount="userPostsCount"-->
-        <!--:userThreadsCount="userThreadsCount"-->
-      <!--/>-->
+      <UserProfileCard
+        v-if="!edit"
+        :user="user"
+        :userPostsCount="userPostsCount"
+        :userThreadsCount="userThreadsCount"
+      />
 
       <UserProfileCardEditor
+        v-else
         :user="user"
         :userPostsCount="userPostsCount"
         :userThreadsCount="userThreadsCount"
@@ -18,7 +20,13 @@
 
       <div class="text-center">
         <hr>
-        <a href="edit-profile.html" class="btn-green btn-small">Edit Profile</a>
+        <router-link
+          :to="{name: 'ProfileEdit'}"
+          class="btn-green btn-small"
+        >
+          Edit Profile
+        </router-link>
+
       </div>
 
     </div>
@@ -52,6 +60,12 @@
       UserProfileCard,
       UserProfileCardEditor,
       PostList
+    },
+    props: {
+      edit: {
+        type: Boolean,
+        default: false
+      }
     },
     computed: {
       ...mapGetters({
