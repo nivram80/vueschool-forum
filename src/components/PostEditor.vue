@@ -8,7 +8,7 @@
         v-model="text"
       ></textarea>
     </div>
-
+    <button class="btn-blue">Submit post</button>
   </form>
 </template>
 <script>

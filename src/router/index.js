@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/pages/PageHome'
 import ThreadShow from '@/components/pages/PageThreadShow'
 import Forum from '@/components/pages/PageForum'
+import Category from '@/components/pages/PageCategory'
 import NotFound from '@/components/pages/PageNotFound'
 
 Vue.use(Router)
@@ -18,6 +19,12 @@ export default new Router({
       path: '/thread/:id',
       name: 'ThreadShow',
       component: ThreadShow,
+      props: true
+    },
+    {
+      path: '/category/:id',
+      name: 'Category',
+      component: Category,
       props: true
     },
     {
